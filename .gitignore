@@ -1,0 +1,6 @@
+*.nc
+RESTART/*
+*.out
+exitcode
+*_velocity_truncations
+CPU_stats
