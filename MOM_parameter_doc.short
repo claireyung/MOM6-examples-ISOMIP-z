@@ -8,10 +8,6 @@ DT = 300.0                      !   [s]
                                 ! The (baroclinic) dynamics time step.  The time-step that is actually used will
                                 ! be an integer fraction of the forcing time-step (DT_FORCING in ocean-only mode
                                 ! or the coupling timestep in coupled mode.)
-HMIX_UV_SFC_PROP = 1.0          !   [m] default = 0.0
-                                ! If BULKMIXEDLAYER is false, HMIX_UV_SFC_PROP is the depth over which to
-                                ! average to find surface flow properties, SSU, SSV. A non-positive value
-                                ! indicates no averaging.
 DTBT_RESET_PERIOD = 0.0         !   [s] default = 300.0
                                 ! The period between recalculations of DTBT (if DTBT <= 0). If DTBT_RESET_PERIOD
                                 ! is negative, DTBT is set based only on information available at
@@ -232,7 +228,7 @@ COL_THICK_MELT_THRESHOLD = 1.0  !   [m] default = 0.0
                                 ! The minimum ocean column thickness where melting is allowed.
 
 ! === module MOM_EOS ===
-USTAR_SHELF_BG = 1.0E-04        !   [m s-1] default = 0.0
+USTAR_SHELF_BG = 0.001          !   [m s-1] default = 0.0
                                 ! The minimum value of ustar under ice shelves.
 CDRAG_SHELF = 0.0025            !   [nondim] default = 0.003
                                 ! CDRAG is the drag coefficient relating the magnitude of the velocity field to

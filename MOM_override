@@ -35,5 +35,5 @@
 
 ! other changes tested
 !#override HMIX_UV_SFC_PROP = 1 ! has indexing issue, but default is zero (i.e. velocity in fric vel calcaultion seems to be vanished layer velocity (approx zero) + minimum velocity USTAR_SHELF_BG
-#override USTAR_SHELF_BG = 0.0001
+!#override USTAR_SHELF_BG = 0.0001
 

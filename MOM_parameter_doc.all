@@ -94,7 +94,7 @@ HMIX_SFC_PROP = 1.0             !   [m] default = 1.0
                                 ! If BULKMIXEDLAYER is false, HMIX_SFC_PROP is the depth over which to average
                                 ! to find surface properties like SST and SSS or density (but not surface
                                 ! velocities).
-HMIX_UV_SFC_PROP = 1.0          !   [m] default = 0.0
+HMIX_UV_SFC_PROP = 0.0          !   [m] default = 0.0
                                 ! If BULKMIXEDLAYER is false, HMIX_UV_SFC_PROP is the depth over which to
                                 ! average to find surface flow properties, SSU, SSV. A non-positive value
                                 ! indicates no averaging.
@@ -692,7 +692,7 @@ DENSITY_ICE = 900.0             !   [kg m-3] default = 900.0
                                 ! A typical density of ice.
 MIN_THICKNESS_SIMPLE_CALVE = 0.0 !   [m] default = 0.0
                                 ! Min thickness rule for the very simple calving law
-USTAR_SHELF_BG = 1.0E-04        !   [m s-1] default = 0.0
+USTAR_SHELF_BG = 0.001          !   [m s-1] default = 0.0
                                 ! The minimum value of ustar under ice shelves.
 CDRAG_SHELF = 0.0025            !   [nondim] default = 0.003
                                 ! CDRAG is the drag coefficient relating the magnitude of the velocity field to
