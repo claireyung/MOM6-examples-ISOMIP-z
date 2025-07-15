@@ -176,7 +176,7 @@
 "ocean_model","ustar","ustar","forcing","all",.false.,"none",2
 "ocean_model","PRCmE","PRCmE","forcing","all",.false.,"none",2
 #"ocean_model","SW","SW","forcing","all",.false.,"none",2
-#"ocean_model","LwLatSens","LwLatSens","forcing","all",.false.,"none",2
+"ocean_model","LwLatSens","LwLatSens","forcing","all",.false.,"none",2
 "ocean_model","p_surf","p_surf","forcing","all",.false.,"none",2
 "ocean_model","salt_flux","salt_flux","forcing","all",.false.,"none",2
 
@@ -197,13 +197,13 @@
 "ice_shelf_model","melt","melt_rate","ice","all",.false.,"none",2
 "ice_shelf_model","thermal_driving","thermal_driving","ice","all",.false.,"none",2
 "ice_shelf_model","haline_driving","haline_driving","ice","all",.false.,"none",2
-#"ice_shelf_model","sbdry","sbdry","ice","all",.false.,"none",2
+"ice_shelf_model","sbdry","sbdry","ice","all",.false.,"none",2
 "ice_shelf_model","u_ml","u_ml","ice","all",.false.,"none",2
 "ice_shelf_model","v_ml","v_ml","ice","all",.false.,"none",2
 "ice_shelf_model","exch_vel_s","exch_vel_s","ice","all",.false.,"none",2
 "ice_shelf_model","exch_vel_t","exch_vel_t","ice","all",.false.,"none",2
 "ice_shelf_model","tfreeze","tfreeze","ice","all",.false.,"none",2
-#"ice_shelf_model","tflux_shelf","tflux_shelf","ice","all",.false.,"none",2
+"ice_shelf_model","tflux_shelf","tflux_shelf","ice","all",.false.,"none",2
 "ice_shelf_model","ustar_shelf","ustar_shelf","ice","all",.false.,"none",2
 
 #=============================================================================================

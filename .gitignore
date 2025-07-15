@@ -4,3 +4,4 @@ RESTART/*
 exitcode
 *_velocity_truncations
 CPU_stats
+.ipynb_checkpoints/*

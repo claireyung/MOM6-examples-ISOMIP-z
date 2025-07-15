@@ -22,7 +22,7 @@
 "ice_shelf_model", "haline_driving"  [Used]
     ! long_name: salinity in the boundary layer minus salinity at the ice-ocean interface.
     ! units: psu
-"ice_shelf_model", "sbdry"  [Unused]
+"ice_shelf_model", "sbdry"  [Used]
     ! long_name: salinity at the ice-ocean interface.
     ! units: psu
 "ice_shelf_model", "u_ml"  [Used]
@@ -40,7 +40,7 @@
 "ice_shelf_model", "tfreeze"  [Used]
     ! long_name: In Situ Freezing point at ice shelf interface
     ! units: degC
-"ice_shelf_model", "tflux_shelf"  [Unused]
+"ice_shelf_model", "tflux_shelf"  [Used]
     ! long_name: Heat conduction into ice shelf
     ! units: W m-2
 "ice_shelf_model", "ustar_shelf"  [Used]

@@ -4003,7 +4003,7 @@
     ! long_name: Shortwave radiation direct and diffuse flux into the ocean in the near-infrared band
     ! units: W m-2
     ! cell_methods: xh:mean yh:mean area:mean
-"LwLatSens"  [Unused]
+"LwLatSens"  [Used]
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yh
     ! long_name: Combined longwave, latent, and sensible heating at ocean surface

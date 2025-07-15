@@ -8,6 +8,10 @@ DT = 300.0                      !   [s]
                                 ! The (baroclinic) dynamics time step.  The time-step that is actually used will
                                 ! be an integer fraction of the forcing time-step (DT_FORCING in ocean-only mode
                                 ! or the coupling timestep in coupled mode.)
+HMIX_UV_SFC_PROP = 1.0          !   [m] default = 0.0
+                                ! If BULKMIXEDLAYER is false, HMIX_UV_SFC_PROP is the depth over which to
+                                ! average to find surface flow properties, SSU, SSV. A non-positive value
+                                ! indicates no averaging.
 DTBT_RESET_PERIOD = 0.0         !   [s] default = 300.0
                                 ! The period between recalculations of DTBT (if DTBT <= 0). If DTBT_RESET_PERIOD
                                 ! is negative, DTBT is set based only on information available at
@@ -110,7 +114,7 @@ RHO_0 = 1027.0                  !   [kg m-3] default = 1035.0
                                 ! The mean ocean density used with BOUSSINESQ true to calculate accelerations
                                 ! and the mass for conservation properties, or with BOUSSINSEQ false to convert
                                 ! some parameters from vertical units of m to kg m-2.
-ANGSTROM = 1.0E-15              !   [m] default = 1.0E-10
+ANGSTROM = 1.0E-12              !   [m] default = 1.0E-10
                                 ! The minimum layer thickness, usually one-Angstrom.
 NK = 25                         !   [nondim]
                                 ! The number of model layers.
@@ -128,13 +132,16 @@ DRHO_DS = 0.805876093           !   [kg m-3 ppt-1] default = 0.8
                                 ! When EQN_OF_STATE=LINEAR, this is the partial derivative of density with
                                 ! salinity.
 RHO_T0_S0 = 999.9106806711001   !   [kg m-3] default = 1000.0
-                                ! When EQN_OF_STATE=LINEAR, this is the density at T=0, S=0 and p=0.  If
-                                ! RHO_TO_SO is specified, RHO_REF_LINEAR_EOS, T_REF_LINEAR_EOS, S_REF_LINEAR_EOS
-                                ! and P_REF_LINEAR_EOS are not used.
-TFREEZE_FORM = "MILLERO_78"     ! default = "LINEAR"
-                                ! TFREEZE_FORM determines which expression should be used for the freezing
-                                ! point.  Currently, the valid choices are "LINEAR", "MILLERO_78", "TEOS_POLY",
-                                ! "TEOS10"
+                                ! When EQN_OF_STATE=LINEAR, this is the density at T=0, S=0.
+TFREEZE_S0_P0 = 0.0832          !   [degC] default = 0.0
+                                ! When TFREEZE_FORM=LINEAR, this is the freezing potential temperature at S=0,
+                                ! P=0.
+DTFREEZE_DS = -0.0573           !   [degC ppt-1] default = -0.054
+                                ! When TFREEZE_FORM=LINEAR, this is the derivative of the freezing potential
+                                ! temperature with salinity.
+DTFREEZE_DP = -7.53E-08         !   [degC Pa-1] default = 0.0
+                                ! When TFREEZE_FORM=LINEAR, this is the derivative of the freezing potential
+                                ! temperature with pressure.
 
 ! === module MOM_tracer_flow_control ===
 
@@ -351,7 +358,7 @@ BE = 0.7                        !   [nondim] default = 0.6
                                 ! and USE_RK2 is true.
 
 ! === module MOM_continuity_PPM ===
-ETA_TOLERANCE = 1.0E-12         !   [m] default = 1.25E-14
+ETA_TOLERANCE = 1.0E-12         !   [m] default = 1.25E-11
                                 ! The tolerance for the differences between the barotropic and baroclinic
                                 ! estimates of the sea surface height due to the fluxes through each face.  The
                                 ! total tolerance for SSH is 4 times this value.  The default is
@@ -385,6 +392,9 @@ MASS_WEIGHT_IN_PGF_VANISHED_ONLY = True !   [Boolean] default = False
 RESET_INTXPA_INTEGRAL = True    !   [Boolean] default = False
                                 ! If true, reset INTXPA to match pressures at first nonvanished cell. Includes
                                 ! pressure correction.
+RESET_INTXPA_INTEGRAL_FLATTEST = True !   [Boolean] default = False
+                                ! If true, use flattest interface as reference interface where there is no
+                                ! better choice for RESET_INTXPA_INTEGRAL. Otherwise, use surface interface.
 
 ! === module MOM_Zanna_Bolton ===
 
@@ -450,6 +460,9 @@ BBL_EFFIC = 0.0                 !   [nondim] default = 0.2
 
 ! === module MOM_bkgnd_mixing ===
 ! Adding static vertical background mixing coefficients
+KD = 1.0E-05                    !   [m2 s-1] default = 0.0
+                                ! The background diapycnal diffusivity of density in the interior. Zero or the
+                                ! molecular value, ~1e-7 m2 s-1, may be used.
 
 ! === module MOM_kappa_shear ===
 ! Parameterization of shear-driven turbulence following Jackson, Hallberg and Legg, JPO 2008
